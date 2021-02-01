@@ -52,7 +52,7 @@ getEmpleados(3)
         console.error(err);
     });
 
-
+// Los compañeros me comentaron que seria mejor concatenarlo y lo he intentado pero no lo he sacado.
     
 getSalario(3)
     .then(res =>{
