@@ -26,7 +26,7 @@ let salaries = [{
 function getEmpleado (inId) {
     return new Promise((resolve, reject)=>{
         if(employees.find(findId => findId.id === inId)){
-            resolve(`The id required is ${employees[inId -1].id}`);
+            resolve(employees[inId -1].id);
         } else {
             reject(`There is not such iD`);
         }
@@ -49,7 +49,7 @@ function getSalario(ObjEmployee) {
 getEmpleado(2)
     .then(getEmployee=> {
         console.log(getEmployee)
-        return getSalario(getEmployeeS)
+        return getSalario(getEmployee)
     })
      .then((salary) => console.log(salary))
      .catch((err) => console.log(err));
