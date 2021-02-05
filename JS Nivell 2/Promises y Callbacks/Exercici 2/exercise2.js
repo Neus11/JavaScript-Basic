@@ -23,10 +23,10 @@ let salaries = [{
     salary: 2000
 }];
 
-getEmpleado = (findId) =>{
+function getEmpleado (inId) {
     return new Promise((resolve, reject)=>{
-        if(employees.find(getFind => getFind.id === findId)){
-            resolve(`The id required is ${employees[findId -1].id}`);
+        if(employees.find(findId => findId.id === inId)){
+            resolve(`The id required is ${employees[inId -1].id}`);
         } else {
             reject(`There is not such iD`);
         }
@@ -35,10 +35,10 @@ getEmpleado = (findId) =>{
 
 };
 
-getSalario = (employee) => {
+function getSalario(ObjEmployee) {
     return new Promise((resolve, reject) => {
-        if (employees.find(salFind => salFind.id === employee)) {
-            resolve(`Ok! The ID:  ${employees[employee -1].id}  requested has this salary: ${salaries[employee - 1].salary}`);
+        if (employees.find(salFind => salFind.id === ObjEmployee)) {
+            resolve(`Ok! The ID: ${employees[ObjEmployee -1].id}  requested has this salary: ${salaries[ObjEmployee - 1].salary}`);
         } else {
             reject(`Id not found!`);
         }
@@ -47,12 +47,9 @@ getSalario = (employee) => {
 
 
 getEmpleado(2)
-.then(employee=>{
-    console.log('Hey!! ' + employee);
-})
-.then(salary=> getEmpleado)
-.catch(err=> console.log(err));
-
-//getSalario()
-  //  .then((salary) => console.log(salary))
-  //.catch((err) => console.log(err));
+    .then(getEmployee=> {
+        console.log(getEmployee)
+        return getSalario(getEmployeeS)
+    })
+     .then((salary) => console.log(salary))
+     .catch((err) => console.log(err));
